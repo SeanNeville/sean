@@ -31,7 +31,7 @@
 							<p>Fantasy Premier League is a game that casts you in the role of a Fantasy manager. You are given the task to pick a squad of real-life players who score points for your team based on their performances in their own matches.</p>
 						
 							<p>FPL hands you a £100m budget which you spend on your squad. You will find that the most expensive players will be the attacking options in midfield and forward positions, while budget options will be inexperienced youngsters or more modest scoring players. Your squad will have 15 players in it but only 11 can start every week, it’s up to you to decide which four to leave on the bench. And it’s also up to you to decide which players to transfer in each week. Your squad can also only have a maximum of three players from one team also.</p>
-				<img src="images/fplcover.jpg" class="img-responsive">
+				<span class="image fit"><img src="images/fplcover.jpg" alt="" /></span>
 				
 				
 					<h2>The Dilemma</h2>
@@ -67,7 +67,7 @@
 
 <p>However, Ivan Toney is the real outlier in this graph. Despite this being his first Premier League season, the striker from newly promoted Brentford has been selected by over 35% of FPL users (due to his ecstatic performances in the lower league and low price).<p>
 
-	<img src="images/fpltableau1.jpg" class="img-responsive">
+	<span class="image fit"><img src="images/fpltableau1.jpg" alt="" /></span>
 	
 <p>Alternatively, in this scatter plot we can also make the observation that aggressive players tend to score more goals.<p>
 
@@ -77,7 +77,7 @@
 							</header>
 							<p>Loading the data into SQL allows us to make some quick observations of the data. However, it also serves to show the limitations of only using SQL for this method.</p>
 						
-<img src="images/fplsql1.jpg" class="img-responsive">
+<span class="image fit"><img src="images/fplsql1.jpg" alt="" /></span>
 
 							<p>Entering in the query, we are returned players with the best possible “points per million” rating. Adding a WHERE clause, we can also filter out players that don’t play above a threshold of minutes, and view by position.<p>
 
@@ -90,7 +90,7 @@
 	<h2>Creating the Python Algorithm</h2>
 							</header>
 							<p>And now, it’s time to create our algorithm. For this, we will be using a plugin called PuLP. The players are essentially variables. I have to create a dictionary that contains all of the players and a value of 0 if they are not selected in the team, and a value of 1 if they are selected. I done this using the pulp.LpVariable.dict() function.</p>
-						<img src="images/fplpy1.jpg" class="img-responsive">
+		<span class="image fit"><img src="images/fplpy1.jpg" alt="" /></span>
 							<p>I then list out the constraints. There aren’t too many to worry about here.
 								
 * 11 starting players
@@ -103,11 +103,11 @@
 								<img src="images/fplpy2.jpg" class="img-responsive">
 
 Okay, let’s see if we have a team!<p>
-	<img src="images/fpltransfers.jpg" class="img-responsive">
+	<span class="image fit"><img src="images/fpltransfers.jpg" alt="" /></span>
 	
 
 <p>And now ‘Algorithm United’ has signed 11 players. Let’s see who made the cut. When PuLP solved the problem, it changed the values in the dictionary to show the starting 11 encoded as 1s. The above loop looks at each entry to our dictionary and prints out those who made the cut.<p>
-<img src="images/fplpy4.jpg" class="img-responsive">
+<span class="image fit"><img src="images/fplpy4.jpg" alt="" /></span>
 <p>Entering the players into Fantasy PL, and this is the squad we get! As Fernandes is the highest scoring player in the squad, he receives the captains armband which gives him double points.<p>
 
 <p>Despite their impressive scores from last season, Ruben Dias, Mohammad Salah and Jamie Vardy are amongst some of the top players not to make the squad!<p>
