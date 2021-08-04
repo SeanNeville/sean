@@ -44,7 +44,7 @@
 				
 					<h2>Data Collection and Cleaning</h2>
 							</header>
-							<p>My first step involved finding an API that included the relevant player data. After inspecting the page source of the Fantasy PL website, I discovered an API link that looked promising. Using a Python request, I could then import this data into a CSV file.</p>
+							<p>My first step involved finding an API that included the relevant player data. After inspecting the page source of the Fantasy PL website, I discovered an API link that looked promising. Using a Python request, I could then import this data into a CSV file. The file has 432 rows of data and 19 columns. Making it a rather extensive database.</p>
 <span class="image fit"><img src="images/fpl1.jpg" alt="" /></span>						
 							<p>Rerunning the file through Python, I then began cleaning the player data. The import had caused some formatting issues with accented characters in the players names. Such as Héctor Bellerín who’s name has now changed to “H’©ctor Beller’_n”. I then made sure to add a new column “points_per_mil”, which can be simply calculated by dividing the players total_points by their market price.<p>
 
