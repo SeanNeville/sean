@@ -32,7 +32,7 @@
 						
 							<p>FPL hands you a £100m budget which you spend on your squad. You will find that the most expensive players will be the attacking options in midfield and forward positions, while budget options will be inexperienced youngsters or more modest scoring players.
 Your squad will have 15 players in it but only 11 can start every week, it’s up to you to decide which four to leave on the bench. And it’s also up to you to decide which players to transfer in each week. Your squad can also only have a maximum of three players from one team also.</p>
-						<img src="images/fplcover.jpg" width: 25%; height: auto;>
+						<img src="images/fplcover.jpg" width: auto; height: auto; object-fit: cover;>
 				
 				
 					<h2>The Dilemma</h2>
@@ -46,7 +46,7 @@ Your squad will have 15 players in it but only 11 can start every week, it’s u
 					<h2>Data Collection and Cleaning</h2>
 							</header>
 							<p>My first step involved finding an API that included the relevant player data. After inspecting the page source of the Fantasy PL website, I discovered an API link that looked promising. Using a Python request, I could then import this data into a CSV file.</p>
-						<img src="images/fpl1.jpg" width: 25%; height: auto;>
+						<img src="images/fpl1.jpg" width: auto; height: auto; object-fit: cover;>
 							<p>Rerunning the file through Python, I then began cleaning the player data. The import had caused some formatting issues with accented characters in the players names. Such as Héctor Bellerín who’s name has now changed to “H’©ctor Beller’_n”. I then made sure to add a new column “points_per_mil”, which can be simply calculated by dividing the players total_points by their market price.<p>
 
 <p>It was now time to address the anomaly that is Stuart Dallas’s points total. At 171 points for the price of £5.5, Stuart Dallas looks to be a huge bargain on the surface. However, a close inspection reveals that he was mistakingly labelled as a defender last season, while his actual playing position is midfield. And you may be wondering what does this mean in terms of his points scored exactly?<p>
