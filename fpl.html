@@ -77,10 +77,14 @@ Your squad will have 15 players in it but only 11 can start every week, it’s u
 							</header>
 							<p>Loading the data into SQL allows us to make some quick observations of the data. However, it also serves to show the limitations of only using SQL for this method.</p>
 						
+<img src="images/fplsql1.jpg" width: 834px; height: auto; object-fit: container;>
+
 							<p>Entering in the query, we are returned players with the best possible “points per million” rating. Adding a WHERE clause, we can also filter out players that don’t play above a threshold of minutes, and view by position.<p>
 
-<p>Our suggested team is balanced all-round with a reliable bench, however has 4 players from both Leeds United and Aston Villa. As well as having £7.5 million left in the budget (which could be better used transferring Salah or Fernandes in). Interestingly, a points deducted Dallas still makes the cut for this squad.<p>
+<p>Our suggested team is balanced all-round with a reliable bench, however has 4 players from both Leeds United and Aston Villa. As well as having £6 million left in the budget (which could be better used transferring Salah or Fernandes in). Interestingly, a points deducted Dallas still makes the cut for this squad.<p>
 					
+	<img src="images/fplsql2.jpg" width: 834px; height: auto; object-fit: container;>
+	
 	<h2>Creating the Python Algorithm</h2>
 							</header>
 							<p>And now, it’s time to create our algorithm. For this, we will be using a plugin called PuLP. The players are essentially variables. I have to create a dictionary that contains all of the players and a value of 0 if they are not selected in the team, and a value of 1 if they are selected. I done this using the pulp.LpVariable.dict() function.</p>
