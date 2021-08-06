@@ -30,13 +30,13 @@
 						</header>
 							<p>Fantasy Premier League is a game that casts you in the role of a Fantasy manager. You are given the task to pick a squad of real-life players who score points for your team based on their performances in their own matches.</p>
 						
-							<p>FPL hands you a £100m budget which you spend on your squad. You will find that the most expensive players will be the attacking options in midfield and forward positions, while budget options will be inexperienced youngsters or more modest scoring players. Your squad will have 15 players in it but only 11 can start every week, it’s up to you to decide which four to leave on the bench. And it’s also up to you to decide which players to transfer in each week. Your squad can also only have a maximum of three players from one team also.</p>
+							<p>FPL hands you a £100m budget which you spend on your squad. You will find that the most expensive players will be the attacking options in midfield and forward positions, while budget options will be inexperienced youngsters or more modest scoring players. Your squad will have 15 players in it but only 11 can start every week, it’s up to you to decide which four to leave on the bench. And it’s also up to you to decide which players to transfer in each week. Your squad can only have a maximum of three players from one team.</p>
 				<span class="image fit"><img src="images/fplcover.jpg" alt="" /></span>
 				
 				
 					<h2>The Dilemma</h2>
 							</header>
-							<p>A regular occurrence each year is that you may join Fantasy PL with ambitions of seeing the season through and securing a top-half finish. And then by about November, you forget about it…</p>
+							<p>A regular occurrence each year is that you may join Fantasy PL with ambitions of seeing the season through and securing a top-half finish. And then by about November, you forget about it</p>
 						
 							<p>This made me wonder however – what if it is possible to select a team on Gameweek 1, and simply forget about it for the rest of the season while still getting a strong finish. Using data from the 2020/21 Premier League season, I set about to find the answer.<p>
 					
@@ -91,15 +91,15 @@
 							</header>
 							<p>And now, it’s time to create our algorithm. For this, we will be using a plugin called PuLP. The players are essentially variables. I have to create a dictionary that contains all of the players and a value of 0 if they are not selected in the team, and a value of 1 if they are selected. I done this using the pulp.LpVariable.dict() function.</p>
 		<span class="image fit"><img src="images/fplpy1.jpg" alt="" /></span>
-							<p>I then list out the constraints. There aren’t too many to worry about here.
+							<p>I then list out the constraints. There aren’t too many to worry about here.<p>
 								
-* 11 starting players
-* 1 goalkeeper
-* 3-5 defenders
-* 3-5 midfielders
-* 1-3 forwards
-* 4 players that can be used as ‘bench fodder’
-* Our budget is 100m (for now)
+* 11 starting players<p>
+* 1 goalkeeper<p>
+* 3-5 defenders<p>
+* 3-5 midfielders<p>
+* 1-3 forwards<p>
+* 4 players that can be used as ‘bench fodder’ costing a total of £17M<p>
+* Our budget is £83M (for now)<p>
 								<span class="image fit"><img src="images/fplpy2.jpg" alt="" /></span>
 
 Okay, let’s see if we have a team!<p>
@@ -112,8 +112,9 @@ Okay, let’s see if we have a team!<p>
 <p>
 <p>Despite their impressive scores from last season, Ruben Dias, Mohammad Salah and Jamie Vardy are amongst some of the top players not to make the squad!<p>
 
-<p>So, I have just built a Fantasy PL team with an algorithm. The team has a total points tally of 2,248 points. While the world champion of the 20/21 season received 2680. 
-The algorithm is far from perfect, ignoring factors such as how newly promoted teams will perform, or rotating players based on fixtures. However, it does succeed in building a strong squad.<p>
+<p>So, I have just built a Fantasy PL team with an algorithm. The team has a total points tally of 2,248 points. While the world champion of the 20/21 season received 2680.<p>
+	<p>Would I use this squad as my own team? - Probably not...<p>
+<p>While it does build a very well balanced team to set and forget, it also ignores factors such as how newly promoted teams will perform, or possible injuries. However, it is a team that is undeniably strong. And many aspects from it can easily be implemented into your own.<p>
 	
 	
 	
