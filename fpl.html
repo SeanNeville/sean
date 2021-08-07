@@ -56,7 +56,7 @@
 <span class="image fit"><img src="images/fpl1.jpg" alt="" /></span>						
 							<p>Rerunning the file through Python, I then began cleaning the player data. The import had caused some formatting issues with accented characters in the players names. Such as Héctor Bellerín who’s name has now changed to “H’©ctor Beller’_n”. I then made sure to add a new column “points_per_mil”, which can be simply calculated by dividing the players total_points by their market price.<p>
 
-<p>It was now time to address the anomaly that is Stuart Dallas’s points total. At 171 points for the price of £5.5, Stuart Dallas looks to be a huge bargain on the surface. However, a close inspection reveals that he was mistakingly labelled as a defender last season, while his actual playing position is midfield. And you may be wondering what does this mean in terms of his points scored exactly?<p>
+<p>It was now time to address the anomaly's caused by 'out-of-position' players. It is a regular occurrence that a player may be assigned the incorrect position in FPL. As an example I will use Stuart Dallas. At 171 points for the price of £5.5, Dallas appears to be a huge bargain. However, a close inspection reveals that he was mistakingly labelled as a defender last season, while his actual playing position is midfield. And you may be wondering what does this mean in terms of his points scored exactly?<p>
 
 <p>Well, defenders get 4 points for a clean sheet while midfielders only receive 1. In addition, midfielders also receive 1 less point for scoring goals. Having scored 8 goals (-1 point) and receiving 12 clean sheets (-3 points), this heavily reduces his points total. 171-36-8=127<p>
 
@@ -71,25 +71,25 @@
 						
 <span class="image fit"><img src="images/fpltableau1.jpg" alt="" /></span>
 
-							<p>The following data made for some interesting insights. In this graph we can see the 12 most selected players for the new season so far. Salah and Fernandes remain the most selected, due to their high-scoring season. Meanwhile, Harry Kane remains at just below 29% (possibly due to reports of a possible transfer to Man City).<p>
+							<p>The following data made for some interesting insights. In this graph we can see the 12 most selected players for the new season so far. Salah and Fernandes remain the most selected, due to their high-scoring season. Meanwhile, Harry Kane remains at just below 29% despite being the second highest scoring player (possibly due to reports of a possible transfer to Man City). Overall, the graph indicates that the highest scoring players are generally the most selected. We can also see that Luke Shaw is highly selected, despite having a lower points total (which may be attributed to him having an excellent run of form towards the end of last season). It is important to note that team selections can be heavily influenced by sensational news articles or discussions from online communitie. For instance at the time of writing this, the Reddit Fantasy FPL page has over 450,000 active members<p>
 
-<p>However, Ivan Toney is the real outlier in this graph. Despite this being his first Premier League season, the striker from newly promoted Brentford has been selected by over 35% of FPL users (due to his ecstatic performances in the lower league and low price).<p>
+<p>However, Ivan Toney is the real outlier in this graph. Despite this being his first Premier League season, the striker from newly promoted Brentford has been selected by over 35% of FPL users (possibly due to his ecstatic performances in the lower league and rather low price).<p>
 
 	<span class="image fit"><img src="images/fpltableau2.jpg" alt="" /></span>
 	
-<p>Alternatively, in this scatter plot we can also make the observation that aggressive players tend to score more goals.<p>
+<p>We can also gain many other interesting insights from Tableau. In this scatter plot we can make the observation that more aggressively players tend to score more goals. Son appears in the top scorer chat despite being the least attacking. His former teammate Harry Kane leads in both attacking and goal-scoring stats. This could suggest that Son performs better sue to Kanes attacking threat and high workrate.<p>
 
 	
 
 <h2>Investigating with SQL</h2>
 							</header>
-							<p>Loading the data into SQL allows us to make some quick observations of the data. However, it also serves to show the limitations of only using SQL for this method.</p>
+							<p>Loading the data into SQL allows us to make some quick observations of the data. However, it also serves to show the limitations of only using SQL for this project.</p>
 						
 <span class="image fit"><img src="images/fplsql1.jpg" alt="" /></span>
 
-							<p>Entering in the query, we are returned a list of players with the best possible “points per million” rating. Adding a WHERE clause, we can also filter out players that don’t play above a threshold of minutes, and view by position.<p>
+							<p>Entering in the query, we are returned a list of players with the best possible “points per million” rating. Adding a WHERE clause, we can also filter out players that don’t play above a threshold of minutes. And we can also use filters via the WHERE clause to view by position.<p>
 
-<p>Our suggested team is balanced all-round with a reliable bench, however it also has 4 players each from both Leeds United and Aston Villa. As well as having £6 million left in the budget (which could be better used transferring in a premium player like Salah or Fernandes). Interestingly, a points deducted Dallas still makes the cut for this value-for-money squad.<p>
+<p>Our suggested team is balanced all-round with a reliable bench, however it also has 4 players each from both Leeds United and Aston Villa (suggesting that these teams have some undervalued players). We also have £6 million left in the budget (which could be better used transferring in a premium player like Salah or Fernandes). Interestingly, a points deducted Dallas still makes the cut for this value-for-money squad.<p>
 					
 	<span class="image fit"><img src="images/fplsql2.jpg" alt="" /></span>
 	
@@ -97,9 +97,9 @@
 	
 	<h2>Creating the Python Algorithm</h2>
 							</header>
-							<p>And now, it’s time to create our algorithm. For this, we will be using a plugin called PuLP. The players are essentially variables. I have to create a dictionary that contains all of the players and a value of 0 if they are not selected in the team, and a value of 1 if they are selected. I done this using the pulp.LpVariable.dict() function.</p>
+							<p>And now, it’s time to create our algorithm. For this, we will be using a plugin called PuLP. The players are essentially variables. I have created a dictionary that contains all of the players and a value of 0 if they are not selected in the team, and a value of 1 if they are selected. I done this using the pulp.LpVariable.dict() function.</p>
 		<span class="image fit"><img src="images/fplpy1.jpg" alt="" /></span>
-							<p>I then list out the constraints. There aren’t too many to worry about here.<p>
+							<p>I then list out the constraints. There aren’t too many to worry about here:<p>
 								
 <li>11 starting players
 <li>1 goalkeeper
@@ -123,7 +123,7 @@ Okay, let’s see if we have a team!<p>
 
 <p>So, I have just built a Fantasy PL team with an algorithm. The team has a total points tally of 2,248 points. While the world champion of the 20/21 season received 2680.<p>
 	<p>Would I use this squad as my own team? - Probably not...<p>
-<p>While it does build a very well balanced team to set and forget, it also ignores factors such as how newly promoted teams will perform, or possible injuries. However, it is a team that is undeniably strong which many FPL experts won't scoff at. And many aspects from this study can even be easily implemented into your own team selection.<p>
+<p>While it does build a very well balanced team to "set and forget", it also ignores factors such as how newly promoted teams will perform, or possible injuries. However, this team is undeniably strong. A better strategy may be to implement aspects from this study into your own team selection, and then removing or adding additional players. After all, choosing your own team is what makes Fantasy PL fun!<p>
 	
 <p>I will provide an updated post on the success of this team, in which I will compare it to my own and some of the top performing teams across FPL.
 	
