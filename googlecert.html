@@ -47,35 +47,14 @@
 					<p>For this case study, I used BigQuery for the data preparation and Tableau for the data visualization and analysis.</p>
 					
 					
-				
-				
 					<h2>Data Merging and Cleaning</h2>
 							</header>
-							<p>A regular occurrence each year is that you may join Fantasy PL with ambitions of seeing the season through and securing a top-half finish. And then by about November, you forget about it</p>
-						
-							<p>This made me wonder however – what if it is possible to select a team on Gameweek 1, and simply forget about it for the rest of the season while still getting a strong finish. Using data from the 2020/21 Premier League season, I set about to find the answer.<p>
-					
-				
-				
-					<h2>Data Collection and Cleaning</h2>
-							</header>
 							<p>Although the company is fictional, the dataset provided is actually public data from a real-life bike-sharing company based in Chicago Divvy. Data used for this case study is from the months of April 2020 to May 2021, which is stored in separate files for each month. </p>
-<span class="image fit"><img src="images/fpl1.jpg" alt="" /></span>						
-							<p>Rerunning the file through Python, I then began cleaning the player data. The import had caused some formatting issues with accented characters in the players names. Such as Héctor Bellerín who’s name has now changed to “H’©ctor Beller’_n”. I then made sure to add a new column “points_per_mil”, which can be simply calculated by dividing the players total_points by their market price.<p>
+<span class="image fit"><img src="images/divvy.png" alt="" /></span>						
+							<p>There are multiple null values across the files, and there are also critical issues where Station ID values have inconsistent format from December onwards. While I could use Python or PGAdmin for this task, I instead used BigQuery on the Google Cloud Platform. One of the reasons being that these files could possibly be too long and lengthy to run on my modestly specced Macbook. And the other being that this was a Google Certificate after all. So when in R̶o̶m̶e̶ Google do as the R̶o̶m̶a̶n̶s̶ Googlers do?!
+<p>
 
-<p>It was now time to address the anomaly's caused by 'out-of-position' players. It is a regular occurrence that a player may be assigned the incorrect position in FPL. As an example I will use Stuart Dallas. At 171 points for the price of £5.5, Dallas appears to be a huge bargain. However, a close inspection reveals that he was mistakingly labelled as a defender last season, while his actual playing position is midfield. And you may be wondering what does this mean in terms of his points scored exactly?<p>
-
-<p>Well, defenders get 4 points for a clean sheet while midfielders only receive 1. In addition, midfielders also receive 1 less point for scoring goals. Having scored 8 goals (-1 point) and receiving 12 clean sheets (-3 points), this heavily reduces his points total. 171-36-8=127<p>
-
-	<span class="image fit"><img src="images/divvy.png" alt="" /></span>
-
-	
-<p>There are multiple null values across the files, and there are also critical issues where Station ID values have inconsistent format from December onwards. While I could use Python or PGAdmin for this task, I instead used BigQuery on the Google Cloud Platform. One of the reasons being that these files could possibly be too long and lengthy to run on my modestly specced Macbook. And the other being that this was a Google Certificate after all. So when in R̶o̶m̶e̶ Google do as the R̶o̶m̶a̶n̶s̶ Googlers do?!
-<p> 
-				
-	<h2>Data Visualisations</h2> 
-</header>
-							<p>The query began with me merging the 12 datasets as a unionized dataset. I then created a date format for the trip and ride length colums.
+<p>The query began with me merging the 12 datasets as a unionized dataset. I then created a date format for the trip and ride length colums.
 I also noticed that Cyclistic performed periodic quality control for their bikes, that were recorded in these datasets. To avoid potential bias, I removed these trips.</p>
 						
 <span class="image fit"><img src="images/unionize.png" alt="" /></span>
@@ -124,8 +103,6 @@ I also noticed that Cyclistic performed periodic quality control for their bikes
 							</header>
 							<p>We now have the relevant insights in order to create a data-driven marketing campaign. The key findings from this analysis are as follows:
 </p>
-		<span class="image fit"><img src="images/fplpy1.jpg" alt="" /></span>
-							<p>I then list out the constraints. There aren’t too many to worry about here:<p>
 								
 <li>Casual riders prefer to take longer trips averaging 45 minutes per trip compared to members who average only 17 minutes.
 <li>Casual Riders tend to ride most between Noon and 6PM.
@@ -134,7 +111,7 @@ I also noticed that Cyclistic performed periodic quality control for their bikes
 <li>Casual Riders prefer to use Cyclistic Bikes on the weekends where the number of users is almost double what it is during the middle of the week.
 <li>Trips made in tourist areas such as harbours and parks are more likely to be Casual Riders than members.
 <p>
-	
+	<p> </p>
 
 From these findings, I have made the following recommendations:<p>
 	
