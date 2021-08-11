@@ -54,7 +54,7 @@
 							<p>There are multiple null values across the files, and there are also critical issues where Station ID values have inconsistent format from December onwards. While I could use Python or PGAdmin for this task, I instead used BigQuery on the Google Cloud Platform. One of the reasons being that these files could possibly be too long and lengthy to run on my modestly specced Macbook. And the other being that this was a Google Certificate after all. So when in R̶o̶m̶e̶ Google do as the R̶o̶m̶a̶n̶s̶ Googlers do?!
 <p>
 
-<p>I downloaded the 12 files dated between April 2020 and March 2021, and then uploaded these into a bucket on my GCP account. From here, I then loaded the csv files from the bucket into BigQuery. From here, I can start running queries with the data. I began by merging the 12 datasets as a unionized dataset. I then created a date format for the trip and ride length colums.
+<p>I downloaded the 12 files dated between April 2020 and March 2021, and then uploaded these into a bucket on my Google Cloud Platform account. From here, I then loaded the csv files from the bucket into BigQuery. From here, I can start running queries with the data. I began by merging the 12 datasets as a unionized dataset. I then created a date format for the trip and ride length colums.
 I also noticed that Cyclistic performed periodic quality control for their bikes, that were recorded in these datasets. To avoid potential bias, I removed these trips.</p>
 						
 <span class="image fit"><img src="images/unionize.png" alt="" /></span>
