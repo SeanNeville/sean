@@ -42,19 +42,19 @@
 </p>
 	<p>Founded in 2016, Cyclistic has since expanded to a fleet of 5,824 bicycles that are geotagged and operating on a network of 692 stations across Chicago. Users are able to unlock a bike from one station, and then return it to another station iacross the network at any time. Cyclistic has 3 seperate pricing plans. These are: single-ride passes, full-day passes, and annual memberships. Customers that purchase single-ride or full-day passes are referred to as ‘Casual Riders’. While the customers who purchase annual memberships are ‘Cyclistic Members’.</p>
 					
-		<p>In order to increase revenue, the Cyclistic wants to develop a new marketing strategy which will convert casual riders into annual members. As the Data Analyst in this case, I am tasked with analysing the bike usage data to understand how Casual Riders and Annual Members use Cyclistic bikes differently, and therefore create a data driven marketing strategy.</p>
+		<p>In order to increase revenue, Cyclistic wants to develop a new marketing strategy which will convert casual riders into annual members. As the Data Analyst in this case, I am tasked with analysing the bike usage data to understand how Casual Riders and Annual Members use Cyclistic bikes differently, and therefore create a data driven marketing strategy.</p>
 					
 					<p>For this case study, I used BigQuery for the data preparation and Tableau for the data visualization and analysis.</p>
 					
 					
 					<h2>Data Merging and Cleaning</h2>
 							</header>
-							<p>Although the company is fictional, the dataset provided is actually public data from a real-life bike-sharing company based in Chicago Divvy. Data used for this case study is from the months of April 2020 to May 2021, which is stored in separate files for each month. </p>
+							<p>Although the company is fictional, the dataset provided is actually public data from a real-life bike-sharing company based in Chicago called Divvy. Data used for this case study is from the months of April 2020 to May 2021, which is stored in separate files for each month. </p>
 <span class="image fit"><img src="images/divvy.png" alt="" /></span>						
 							<p>There are multiple null values across the files, and there are also critical issues where Station ID values have inconsistent format from December onwards. While I could use Python or PGAdmin for this task, I instead used BigQuery on the Google Cloud Platform. One of the reasons being that these files could possibly be too long and lengthy to run on my modestly specced Macbook. And the other being that this was a Google Certificate after all. So when in R̶o̶m̶e̶ Google do as the R̶o̶m̶a̶n̶s̶ Googlers do?!
 <p>
 
-<p>The query began with me merging the 12 datasets as a unionized dataset. I then created a date format for the trip and ride length colums.
+<p>I downloaded the 12 files dated between April 2020 and March 2021, and then uploaded these into a bucket on my GCP account. From here, I then loaded the csv files from the bucket into BigQuery. From here, I can start running queries with the data. I began by merging the 12 datasets as a unionized dataset. I then created a date format for the trip and ride length colums.
 I also noticed that Cyclistic performed periodic quality control for their bikes, that were recorded in these datasets. To avoid potential bias, I removed these trips.</p>
 						
 <span class="image fit"><img src="images/unionize.png" alt="" /></span>
